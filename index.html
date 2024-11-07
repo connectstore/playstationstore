@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -7,74 +7,162 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #191414;
-            color: #FFFFFF;
-            padding: 20px;
             margin: 0;
+            padding: 0;
+            background-color: #FFFFFF;
+            box-sizing: border-box;
+        }
+
+        .toolbar {
+            background: linear-gradient(90deg, #3C3B6E, #4E75AF); /* Azul e Vermelho */
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .toolbar .header {
             display: flex;
+            align-items: center;
+            padding: 0;
+        }
+
+        .header .logo {
+            display: flex;
+            align-items: center;
+            margin-right: 10px;
+        }
+
+        .header .logo img {
+            padding: 5px;
+            width: 40px;
+            margin-right: -2.5px;
+        }
+
+        .header .title,
+        .header .powered-by {
+            text-align: left;
+            margin-top: -12px;
+        }
+
+        .header .title {
+            font-size: 30px;
+            font-weight: bold;
+            color: #FFFFFF;
+            white-space: nowrap;
+        }
+
+        .header .powered-by {
+            font-size: 16px;
+            color: #FFFFFF;
+            white-space: nowrap;
+        }
+
+        .header .profile {
+            flex-grow: 1;
+            text-align: right;
+        }
+
+        .header .profile img {
+            max-height: 200px;
+            object-fit: cover;
+        }
+
+        .toolbar-options {
+            background-color: #FFFFFF;
+            display: flex;
+            padding: 0;
+            margin: 0;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            box-sizing: border-box;
+            margin-top: -3px;
+        }
+
+        .toolbar-options .option {
+            flex: 1;
+            text-align: center;
+            padding: 15px;
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .toolbar-options .option.active {
+            color: #4E75AF; /* Vermelho */
+            font-weight: bold;
+            border-bottom: 2px solid #4E75AF;
+        }
+
+        .toolbar-options .option.inactive {
+            color: #757575;
+        }
+
+        .content {
+            padding: 8px;
+        }
+
+        .content .section-title {
+            text-align: center;
+            color: #616161;
+            margin-bottom: 8px;
+        }
+
+        .container {
+            max-width: 500px;
+            background-color: #ffffff;
+            padding: 20px;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
         }
-        .logo {
-            filter: invert(100%);
-            width: 100px;
-            height: auto;
-            margin-bottom: 10px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .container {
-            width: 100%;
-            max-width: 500px;
-            background-color: #191414;
-            padding: 20px;
-            border-radius: 8px;
-        }
+
         .card {
             margin: 10px 0;
             padding: 15px;
-            background-color: #252525;
+            background-color: #f5f5f5;
             display: flex;
             align-items: center;
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s ease;
         }
+
         .card:hover {
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
         .card.selected {
-            border: 2px solid #0057B7; /* Azul da PlayStation */
+            border: 2px solid #4E75AF; /* Vermelho */
             transform: scale(1.05);
         }
+
         .highlight {
-            background-color: #141414;
-            color: #ffffff;
+            background: linear-gradient(90deg, #3C3B6E, #4E75AF); /* Azul e Vermelho */
+            color: #FFFFFF;
             padding: 5px 10px;
             border-radius: 20px;
             margin-left: auto;
         }
+
         .title {
             font-size: 30px;
-            color: #FFFFFF;
+            color: #333333;
             text-align: center;
             margin-bottom: 10px;
         }
+
         .subtitle {
             font-size: 16px;
-            color: #B3B3B3;
+            color: #666666;
             text-align: center;
             margin-bottom: 20px;
         }
+
         .value {
             flex-grow: 1;
             font-size: 20px;
-            color: #FFFFFF;
+            color: #333333;
             margin-left: 10px;
         }
+
         .popup {
             display: flex;
             flex-direction: column;
@@ -86,8 +174,8 @@
             width: 100%;
             padding-top: 32px;
             padding-bottom: 8px;
-            background-color: #191414;
-            box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.7);
+            background-color: #ffffff;
+            box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.2);
             border-top-left-radius: 16px;
             border-top-right-radius: 16px;
             transition: transform 0.3s ease-in-out;
@@ -95,10 +183,12 @@
             max-height: 50%;
             overflow-y: auto;
         }
+
         .popup.active {
             display: block;
             transform: translateY(0);
         }
+
         .popup .close {
             position: absolute;
             top: 16px;
@@ -107,33 +197,37 @@
             font-weight: bold;
             cursor: pointer;
         }
+
         .popup .summary {
             font-size: 20px;
-            font-weight: bold;
-            color: #FFFFFF;
+            color: #616161;
             text-align: center;
             margin-bottom: 8px;
         }
+
         .popup .total {
             font-size: 40px;
-            color: #FFFFFF;
+            color: #616161;
             text-align: center;
             margin-bottom: 8px;
         }
+
         .popup .fee {
             font-size: 16px;
             padding: 8px;
+            color: #616161;
             border-radius: 4px;
             text-align: center;
             margin-bottom: 8px;
-            color: #FFFFFF;
         }
+
         .popup .message {
             font-size: 16px;
-            color: #FFFFFF;
-            margin: 8px 0;
+            color: #616161;
+            margin: 10px 0;
             text-align: center;
         }
+
         .button {
             max-width: 350px;
             margin: 8px 0;
@@ -144,86 +238,110 @@
             text-align: center;
             font-size: 18px;
             color: #FFFFFF;
-            background-color: #0057B7; /* Azul da PlayStation */
+            background-color: #4E75AF; /* Vermelho */
             border: none;
             border-radius: 8px;
             cursor: pointer;
             text-decoration: none;
         }
-        .bottom-button {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            margin: 0;
-            padding: 14px;
-            background-color: #0057B7; /* Azul da PlayStation */
-            color: #FFFFFF;
-            text-align: center;
-            font-size: 18px;
-            border: none;
-            cursor: pointer;
-        }
+
         .button:hover {
-            background-color: #0047A0; /* Cor do botão ao passar o mouse */
+            background-color: #4E75AF; /* Vermelho escuro */
         }
+
         .cancel-button:hover {
-            background-color: #FF0000; /* Cor do botão ao passar o mouse */
+            background-color: #FF0000; /* Vermelho */
         }
+
         .bottom-button {
             position: relative;
+            background: linear-gradient(90deg, #3C3B6E, #4E75AF); /* Azul e Vermelho */
             margin-top: 20px;
             margin-bottom: 10px;
         }
+
         .cancel-button {
-            background-color: #FF0000;
+            background: linear-gradient(90deg, #B22234, #FF0000); /* Vermelho e Vermelho escuro */
             margin-top: 10px;
             margin-bottom: 10px;
         }
+
+        .pay-button {
+            background: linear-gradient(90deg, #3C3B6E, #4E75AF); /* Azul e Vermelho */
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
         .hidden {
             display: none;
         }
+
         input[type="radio"] {
             display: none;
+        }
+
+        .logo {
+            width: 50px;
+            height: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: -12px;
         }
     </style>
 </head>
 <body>
-
-<div class="container">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/PlayStation_logo.svg" alt="PlayStation Logo" class="logo">
-    <div class="title">PlayStation Store</div>
-    <div class="subtitle">Powered by Connect</div>
-    <div class="subtitle">Selecione o valor do cartão pré-pago</div>
-
-    <div class="card" onclick="selectCard('value35')">
+    <div class="toolbar">
+        <div class="header">
+            <div class="logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Playstation_logo_colour.svg" alt="Logo" class="logo">
+                <div>
+                    <div class="title">Playstation</div>
+                    <div class="powered-by">Powered by Connect</div>
+                </div>
+            </div>
+            <div class="profile">
+                <img src="banner.png" alt="Profile Picture" />
+            </div>
+        </div>
+        <div class="toolbar-options">
+            <div class="option active">Brasil</div>
+            <div class="option inactive"></div>
+        </div>
+    </div>
+   
+    <div class="container">
+        <div class="subtitle">Selecione o valor do cartão pré-pago</div>
+        <div class="card" onclick="selectCard('value35')">
         <input type="radio" name="value" id="value35" value="35">
         <label for="value35" class="value">R$ 35</label>
     </div>
     <div class="card" onclick="selectCard('value60')">
         <input type="radio" name="value" id="value60" value="60">
         <label for="value60" class="value">R$ 60</label>
+        <span class="highlight">Mais pedido!</span>
     </div>
     <div class="card" onclick="selectCard('value100')">
         <input type="radio" name="value" id="value100" value="100">
         <label for="value100" class="value">R$ 100</label>
-        <span class="highlight">Mais pedido!</span>
     </div>
 </div>
 
 <div class="popup" id="paymentPopup">
-    <div class="summary">Valor final do pedido</div>
-    <div class="total" id="orderTotal">R$ 20</div>
-    <div class="fee">Para processamento e emissão do cartão pré-pago incluímos uma taxa de R$ 5.</div>
-    <button href="#" class="button" id="payButton">REALIZAR PAGAMENTO</button>
-    <button class="button cancel-button" id="cancelButton">CANCELAR PEDIDO</button>
-</div>
+        <div class="summary">Valor final do pedido</div>
+        <div class="total" id="orderTotal">R$ 20</div>
+        <div class="fee">Para processamento e emissão do cartão pré-pago incluímos uma taxa de R$ 5.</div>
+        <button href="#" class="button" id="payButton">REALIZAR PAGAMENTO</button>
+        <button class="button cancel-button" id="cancelButton">CANCELAR PEDIDO</button>
+    </div>
 
 <button class="button bottom-button" id="continueButton">CONTINUAR</button>
 
 <script>
     //Oculta o botão "Continuar" ao abrir a página.
     document.getElementById('continueButton').classList.add('hidden'); // Oculta o botão "Continuar"
+    
+    selectCard("value60");
     
     function selectCard(cardId) {
         document.getElementById('paymentPopup').classList.remove('active');
@@ -260,13 +378,23 @@
         document.getElementById('continueButton').classList.remove('hidden'); // Mostra o botão "Continuar"
     });
 
-    document.getElementById('payButton').addEventListener('click', function() {
+    /*document.getElementById('payButton').addEventListener('click', function() {
         var selectedValue = document.querySelector('input[name="value"]:checked').value;
         var total = parseInt(selectedValue) + 5;
         var message = "Quero concluir o meu pedido #PLAYSTATIONSTORE" + selectedValue + "\n\nDetalhes do pedido\n1x R$ " + selectedValue + " (PlayStation Store)\n1x R$ 5 (Taxa de processamento)";
         var whatsappUrl = "https://api.whatsapp.com/send?phone=553398801838&text=" + encodeURIComponent(message);
         window.location.href = whatsappUrl;
-    });
+    });*/
+    
+    // Nova forma de pagar
+    document.getElementById('payButton').addEventListener('click', function() {
+    var selectedValue = document.querySelector('input[name="value"]:checked').value;
+    var total = parseInt(selectedValue) + 5;
+    
+    // Constrói a URL de checkout corretamente
+    var checkoutUrl = "https://connectstore.github.io/checkout?payment=" + total + "&product=Playstation%20Store" + "&price=" + selectedValue;
+    window.location.href = checkoutUrl;
+});
 </script>
 
 </body>
