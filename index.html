@@ -139,7 +139,15 @@
             color: #FFFFFF;
             padding: 5px 10px;
             border-radius: 20px;
-            margin-left: auto;
+            margin-left: 3px;
+        }
+        
+        .highlightblackfriday {
+            background: linear-gradient(90deg, #000000, #000000);
+            color: #FFFFFF;
+            padding: 5px 10px;
+            border-radius: 20px;
+            margin-left: 3px;
         }
 
         .title {
@@ -312,18 +320,28 @@
    
     <div class="container">
         <div class="subtitle">Selecione o valor do cartão pré-pago</div>
-        <div class="card" onclick="selectCard('value35')">
-        <input type="radio" name="value" id="value35" value="35">
-        <label for="value35" class="value">R$ 35</label>
-    </div>
     <div class="card" onclick="selectCard('value60')">
         <input type="radio" name="value" id="value60" value="60">
         <label for="value60" class="value">R$ 60</label>
         <span class="highlight">Mais pedido!</span>
     </div>
     <div class="card" onclick="selectCard('value100')">
-        <input type="radio" name="value" id="value100" value="100">
+        <input type="radio" name="value" id="value100" value="95">
         <label for="value100" class="value">R$ 100</label>
+        <span class="highlightblackfriday">Black Friday</span>
+        <span class="highlightblackfriday">Taxa zero</span>
+    </div>
+    <div class="card" onclick="selectCard('value250')">
+        <input type="radio" name="value" id="value250" value="245">
+        <label for="value250" class="value">R$ 250</label>
+        <span class="highlightblackfriday">Black Friday</span>
+        <span class="highlightblackfriday">Taxa zero</span>
+    </div>
+    <div class="card" onclick="selectCard('value525')">
+        <input type="radio" name="value" id="value525" value="525">
+        <label for="value525" class="value">R$ 530</label>
+        <span class="highlightblackfriday">Black Friday</span>
+        <span class="highlightblackfriday">Taxa zero</span>
     </div>
 </div>
 
