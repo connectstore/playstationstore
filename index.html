@@ -361,32 +361,32 @@
    
     <div class="container">
     
+    <!-- Desativado
     <div class="adcard adhighlight-card">
     <div class="adcard-content">
      <div class="adcard-title">
-      Tá on?
-     </div>
-     <div class="adcard-text">
-      O Connect sim! E hoje você tem TAXA ZERO em todos Gift Cards da PSN acima de R$ 100 🚀
-     </div>
-     <div class="adcard-text green">
-      A oferta TÁ ON para você! 
-     </div>
+     Recarregue acima de R$ 300 e ganhe mais! 🏆
+</div>
+<div class="adcard-text">
+     Aproveite um bônus de boas-vindas de R$ 5 + 2% de cashback ao recarregar com nosso parceiro. Sua recarga rende ainda mais 🚀
+</div>
+<div id="adAction" class="adcard-text green">
+     RECARREGAR AGORA
+</div>
     </div>
    </div>
+   -->
    
     <div class="subtitle">Selecione o valor do cartão pré-pago</div>
-   <!-- Desativado
     <div class="card" onclick="selectCard('value35')">
         <input type="radio" name="value" id="value35" value="35">
         <label for="value35" class="value">R$ 35</label>
         <span class="highlight">Mais pedido!</span>
     </div>
-    -->
     <div class="card" onclick="selectCard('value60')">
         <input type="radio" name="value" id="value60" value="60">
         <label for="value60" class="value">R$ 60</label>
-    </div>
+    </div>   
     <div class="card" onclick="selectCard('value100')">
         <input type="radio" name="value" id="value100" value="100">
         <label for="value100" class="value">R$ 100</label>
@@ -394,8 +394,9 @@
     <div class="card" onclick="selectCard('value250')">
         <input type="radio" name="value" id="value250" value="245">
         <label for="value250" class="value">R$ 250</label>
-        <span class="highlight">Mais pedido!</span>
+        <span class="highlight">Taxa zero</span>
     </div>
+     <!-- Desativado
     <div class="card" onclick="selectCard('value360')">
         <input type="radio" name="value" id="value360" value="355">
         <label for="value360" class="value">R$ 360</label>
@@ -404,6 +405,7 @@
         <input type="radio" name="value" id="value525" value="525">
         <label for="value525" class="value">R$ 530</label>
     </div>
+        -->
     </div>
 
 <div class="popup" id="paymentPopup">
@@ -417,6 +419,7 @@
 <button class="button bottom-button" id="continueButton">CONTINUAR</button>
 
 <script>
+
     //Oculta o botão "Continuar" ao abrir a página.
     document.getElementById('continueButton').classList.add('hidden'); // Oculta o botão "Continuar"
     
