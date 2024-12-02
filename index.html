@@ -391,12 +391,12 @@
         <input type="radio" name="value" id="value100" value="100">
         <label for="value100" class="value">R$ 100</label>
     </div>
+    <!-- Desativado
     <div class="card" onclick="selectCard('value250')">
         <input type="radio" name="value" id="value250" value="245">
         <label for="value250" class="value">R$ 250</label>
         <span class="highlight">Taxa zero</span>
     </div>
-     <!-- Desativado
     <div class="card" onclick="selectCard('value360')">
         <input type="radio" name="value" id="value360" value="355">
         <label for="value360" class="value">R$ 360</label>
@@ -423,7 +423,7 @@
     //Oculta o botão "Continuar" ao abrir a página.
     document.getElementById('continueButton').classList.add('hidden'); // Oculta o botão "Continuar"
     
-    selectCard("value250");
+    selectCard("value35");
     
     function selectCard(cardId) {
         document.getElementById('paymentPopup').classList.remove('active');
